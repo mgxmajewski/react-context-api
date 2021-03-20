@@ -72,11 +72,7 @@ class App extends Component {
         }}>
           <div className="scoreboard">
             <Header />
-            <PlayerList
-                players={this.state.players}
-                changeScore={this.handleScoreChange}
-                removePlayer={this.handleRemovePlayer}
-            />
+            <PlayerList removePlayer={this.handleRemovePlayer} />
             <AddPlayerForm addPlayer={this.handleAddPlayer} />
           </div>
         </Provider>
