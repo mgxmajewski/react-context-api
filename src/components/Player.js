@@ -6,26 +6,18 @@ import { Consumer } from "./Context";
 class Player extends PureComponent {
 
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired
   };
 
-  render() {
-    
-    const { 
-      name,
-      id,
-      index,
-    } = this.props;
+  render() { const { index } = this.props
 
       return (
           <div className="player">
               <Consumer>
-                  { ({ actions }) => (
+                  { ({ actions, players }) => (
                       <span className="player-name">
-                          <button className="remove-player" onClick={() => actions.removePlayer(id)}>✖</button>
-                          { name }
+                          <button className="remove-player" onClick={() => actions.removePlayer(players[index].id)}>✖</button>
+                          { players[index].name }
                 </span>
                   )}
               </Consumer>
