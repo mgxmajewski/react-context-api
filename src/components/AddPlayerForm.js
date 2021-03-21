@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Consumer} from "./Context";
 
 const AddPlayerForm = () => {
@@ -9,7 +8,7 @@ const AddPlayerForm = () => {
                 const playerInput = React.createRef();
                 const handleSubmit = (e) => {
                     e.preventDefault();
-                    context.addPlayer(playerInput.current.value);
+                    context.actions.addPlayer(playerInput.current.value);
                     e.currentTarget.reset();
                 }
                 return (
@@ -29,9 +28,5 @@ const AddPlayerForm = () => {
         </Consumer>
     );
 }
-
-AddPlayerForm.propTypes = {
-  addPlayer: PropTypes.func
-};
 
 export default AddPlayerForm;
