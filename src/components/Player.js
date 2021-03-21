@@ -7,7 +7,6 @@ class Player extends PureComponent {
 
   static propTypes = {
     name: PropTypes.string.isRequired,
-    score: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     index: PropTypes.number.isRequired
   };
@@ -17,25 +16,21 @@ class Player extends PureComponent {
     const { 
       name,
       id,
-      score,
       index,
     } = this.props;
 
       return (
           <div className="player">
               <Consumer>
-                  {context => (
+                  { ({ actions }) => (
                       <span className="player-name">
-                          <button className="remove-player" onClick={() => context.actions.removePlayer(id)}>✖</button>
+                          <button className="remove-player" onClick={() => actions.removePlayer(id)}>✖</button>
                           { name }
                 </span>
                   )}
               </Consumer>
 
-            <Counter
-          score={score}
-          index={index}
-        />
+            < Counter index={index} />
       </div>
     );
   }
